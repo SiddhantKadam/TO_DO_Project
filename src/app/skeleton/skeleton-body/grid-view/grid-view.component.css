@@ -1,0 +1,28 @@
+mat-grid-list {
+    margin-top: 10px;
+}
+mat-grid-tile {
+    background-color: bisque;
+}
+
+mat-grid-tile .key {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+}
+mat-grid-tile .priority {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+mat-grid-tile .select-dropdown {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+}
+mat-grid-tile .action-button {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+}

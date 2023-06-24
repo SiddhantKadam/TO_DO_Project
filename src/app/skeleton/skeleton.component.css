@@ -1,0 +1,10 @@
+.main {
+    display: flex;
+}
+app-skeleton-sidebar {
+    width: 20%;
+}
+app-skeleton-body {
+    width: 80%;
+    padding: 20px;
+}

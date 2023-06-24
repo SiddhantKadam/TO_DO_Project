@@ -1,0 +1,17 @@
+<mat-card class="example-card">
+    <mat-toolbar>
+        <mat-card-header>
+            <mat-card-title>Issues</mat-card-title>
+            <button mat-raised-button color="accent" (click)="openDialog()">Create issue
+                <mat-icon>library_add</mat-icon></button>
+        </mat-card-header>
+        <span class="example-spacer"></span>
+        <mat-chip-listbox aria-label="Fish selection">
+            <mat-chip-option color="accent" (click)="view='list'" selected>List view</mat-chip-option>
+            <mat-chip-option color="accent" (click)="view='grid'">Grid view</mat-chip-option>
+        </mat-chip-listbox>
+    </mat-toolbar>
+</mat-card>
+
+<app-task-view *ngIf="view=='list'"></app-task-view>
+<app-grid-view *ngIf="view=='grid'"></app-grid-view>

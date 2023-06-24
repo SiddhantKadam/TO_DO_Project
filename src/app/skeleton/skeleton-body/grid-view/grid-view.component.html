@@ -1,0 +1,30 @@
+<mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile *ngFor="let task of taskList">
+        <p class="key">KEY: {{task.key}}</p>
+        <h2>{{task.task}}</h2>
+        <p class="priority">
+            PRIORITY
+            <mat-icon style="color: lawngreen;" *ngIf="task.priority == 'Low'">keyboard_arrow_down</mat-icon>
+            <mat-icon color="accent" *ngIf="task.priority == 'Medium'">minimize</mat-icon>
+            <mat-icon color="warn" *ngIf="task.priority == 'High'">keyboard_arrow_up</mat-icon>
+        </p>
+        <div class="select-dropdown">
+            <select [(ngModel)]="task.status" placeholder="Select" (change)="onChange(task)"
+                [ngStyle]="{'background-color': task.status == 'In progress' ? '#ff4081' : task.status == 'Complete' ? 'green' : 'blue'}">
+                <option value="To do">TO DO</option>
+                <option value="In progress">IN PROGRESS</option>
+                <option value="Complete">COMPLETE</option>
+            </select>
+        </div>
+        <div class="action-button">
+            <button mat-mini-fab color="accent" aria-label="Example icon button with a filter list icon"
+                (click)="getTaskById(task.id)">
+                <mat-icon>create</mat-icon>
+            </button>
+            <button mat-mini-fab color="warn" style="margin-left: 10px;"
+                aria-label="Example icon button with a filter list icon" (click)="deleteTask(task.id)">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+    </mat-grid-tile>
+</mat-grid-list>

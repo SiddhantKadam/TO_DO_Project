@@ -1,0 +1,62 @@
+<h2 class="page-header">CREATE TASK</h2>
+<mat-divider></mat-divider>
+<form [formGroup]="taskForm" (ngSubmit)="onSubmit()">
+    <mat-dialog-content class="mat-typography" style="width: 1000px;">
+        <mat-grid-list cols="2" rowHeight="4:1">
+            <mat-grid-tile>
+                <mat-form-field class="example-full-width" [formGroup]="taskForm">
+                    <mat-label>Task name</mat-label>
+                    <input matInput formControlName="task" [(ngModel)]="taskModel.task"
+                        [ngClass]="{ 'is-invalid': submitted && f.task.errors }">
+                    <mat-hint *ngIf="submitted && f.task.errors">
+                        <div *ngIf="f.task.errors.required">Task name is required</div>
+                    </mat-hint>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field class="example-full-width" [formGroup]="taskForm">
+                    <mat-label>Task description</mat-label>
+                    <textarea matInput formControlName="description" [(ngModel)]="taskModel.description"
+                        [ngClass]="{ 'is-invalid': submitted && f.description.errors }"></textarea>
+                    <mat-hint *ngIf="submitted && f.description.errors" class="invalid-feedback">
+                        <div *ngIf="f.description.errors.required">Task description is required</div>
+                    </mat-hint>
+                </mat-form-field>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <mat-form-field class="example-full-width" [formGroup]="taskForm">
+                    <mat-label>Select priority</mat-label>
+                    <mat-select formControlName="priority" [(ngModel)]="taskModel.priority"
+                        [ngClass]="{ 'is-invalid': submitted && f.priority.errors }">
+                        <mat-option value="High">High</mat-option>
+                        <mat-option value="Medium">Medium</mat-option>
+                        <mat-option value="Low">Low</mat-option>
+                    </mat-select>
+                    <mat-hint *ngIf="submitted && f.priority.errors" class="invalid-feedback">
+                        <div *ngIf="f.priority.errors.required">Priority is required</div>
+                    </mat-hint>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-form-field class="example-full-width" [formGroup]="taskForm">
+                    <mat-label>Select status</mat-label>
+                    <mat-select formControlName="status" [(ngModel)]="taskModel.status"
+                        [ngClass]="{ 'is-invalid': submitted && f.status.errors }">
+                        <mat-option value="To do">TO DO</mat-option>
+                        <mat-option value="In progress">IN PROGRESS</mat-option>
+                        <mat-option value="Complete">COMPLETE</mat-option>
+                    </mat-select>
+                    <mat-hint *ngIf="submitted && f.status.errors" class="invalid-feedback">
+                        <div *ngIf="f.status.errors.required">Status is required</div>
+                    </mat-hint>
+                </mat-form-field>
+            </mat-grid-tile>
+
+        </mat-grid-list>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+        <button type="submit" mat-raised-button color="accent">Create</button>
+    </mat-dialog-actions>
+</form>

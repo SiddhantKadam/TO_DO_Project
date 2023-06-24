@@ -1,0 +1,28 @@
+h1 {
+    background-color: silver;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    margin: 20px;
+}
+
+.menu {
+    display: flex;
+    padding: 20px 20px 0 20px;
+}
+
+.menu h3 {
+    margin-left: 10px;
+    margin-top: -2px;
+}
+
+p {
+    text-align: justify;
+    padding: 0 20px 20px 20px;
+    color: gray;
+}
+
+.header {
+    padding: 20px 20px 0 20px;
+    color: gray;
+}
